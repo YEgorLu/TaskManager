@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/Header";
-import TaskColumn from "./modules/task/TaskColumn";
+import { Header } from "src/components";
+import { TaskColumn } from "src/modules/task";
 
 function App() {
   return (
