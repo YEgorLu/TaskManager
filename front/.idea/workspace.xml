@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80b04de5-5c33-4d6a-a5ec-ea61b53879fe" name="Changes" comment="front: made task column, set up tailwind">
+    <list default="true" id="80b04de5-5c33-4d6a-a5ec-ea61b53879fe" name="Changes" comment="front: remade project trying to make work absolute paths, made Task column">
       <change afterPath="$PROJECT_DIR$/src/modules/task/TaskColumn/TaskColumn.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -30,6 +30,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "YEgorLu"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1b4bbabe-2555-4f49-a6be-129230291af7" />
+        <option name="url" value="git@github.com:YEgorLu/TaskManager.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="JsBowerSettings">
     <bower-package value="" />
@@ -104,7 +118,7 @@
       <workItem from="1691235032280" duration="23000" />
       <workItem from="1691235117799" duration="28969000" />
       <workItem from="1691376946017" duration="26000" />
-      <workItem from="1691423162414" duration="2107000" />
+      <workItem from="1691423162414" duration="2468000" />
     </task>
     <task id="LOCAL-00001" summary="front: made task column, set up tailwind">
       <option name="closed" value="true" />
@@ -114,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691230569671</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="front: remade project trying to make work absolute paths, made Task column">
+      <option name="closed" value="true" />
+      <created>1691425655452</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691425655452</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +155,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="front: made task column, set up tailwind" />
-    <option name="LAST_COMMIT_MESSAGE" value="front: made task column, set up tailwind" />
+    <MESSAGE value="front: remade project trying to make work absolute paths, made Task column" />
+    <option name="LAST_COMMIT_MESSAGE" value="front: remade project trying to make work absolute paths, made Task column" />
   </component>
 </project>
