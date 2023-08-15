@@ -15,8 +15,8 @@ const Modal: FC<ModalProps> = ({ children, config }) => {
 
   return (
     <>
-      <div className="absolute left-1/2 top-1/2 z-50 h-fit w-fit -translate-x-1/2 -translate-y-1/2">
-        {children}
+      <div className="absolute left-1/2 top-1/2 z-50 flex h-fit w-fit -translate-x-1/2 -translate-y-1/2 items-center justify-center p-[20px]">
+        <div className="">{children}</div>
       </div>
 
       <div

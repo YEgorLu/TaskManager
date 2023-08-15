@@ -1,14 +1,17 @@
 import { FC, useEffect, useRef, useState } from "react";
 import TaskRow from "../TaskRow";
-import { useModal } from "../../modal";
-import Modal from "../../modal/Modal";
+import { useModal } from "src/components/modal";
+import Modal from "src/components/modal/Modal";
 import TaskCreateCard from "../TaskCreateCard";
 import Footer from "./Footer";
-
-const _tasks = ["task1", "task2", "task3"];
+import { useAppDispatch, useAppSelector } from "src/Redux/hooks";
+import { addTask, selectTask, Task, taskSelectors } from "../Redux";
 
 const TaskColumn: FC = () => {
-  const [tasks, setTasks] = useState(_tasks);
+  const tasks = useAppSelector(taskSelectors.tasks);
+  const selectedTaskIndex = useAppSelector(taskSelectors.selectedTaskIndex);
+  const dispatch = useAppDispatch();
+
   const addButtonRef = useRef<HTMLButtonElement>(null);
 
   const modal = useModal();
@@ -18,7 +21,16 @@ const TaskColumn: FC = () => {
     console.log(headingNew);
   }, [headingNew]);
 
-  const saveTask = (task: string) => setTasks([...tasks, task]);
+  const saveTask = (task: Task) => {
+    dispatch(addTask(task));
+    setHeadingNew("");
+    setCreatingNew(false);
+  };
+
+  const openTask = (index: number) => {
+    dispatch(selectTask(index));
+    modal.open();
+  };
 
   return (
     <>
@@ -28,8 +40,10 @@ const TaskColumn: FC = () => {
         </div>
 
         <ul className="mb-4 w-full">
-          {tasks.map((t) => (
-            <TaskRow key={t}>{t}</TaskRow>
+          {tasks.map((t, i) => (
+            <TaskRow key={i} onClick={() => openTask(i)}>
+              {t.heading}
+            </TaskRow>
           ))}
           {creatingNew && (
             <TaskRow
@@ -38,12 +52,13 @@ const TaskColumn: FC = () => {
                 onBlur: (ev) => {
                   console.log(ev.relatedTarget);
                   if (ev.relatedTarget === addButtonRef.current) {
-                    saveTask(headingNew);
+                    saveTask({ heading: headingNew });
                   }
                   setCreatingNew(false);
                 },
                 onInput: (ev) => setHeadingNew(ev.currentTarget.value),
                 autoFocus: true,
+                onSave: () => saveTask({ heading: headingNew }),
               }}
             />
           )}
@@ -51,12 +66,12 @@ const TaskColumn: FC = () => {
         <Footer
           editing={creatingNew}
           ref={addButtonRef}
-          save={() => saveTask(headingNew)}
+          save={() => saveTask({ heading: headingNew })}
           enableEditing={() => setCreatingNew(true)}
         />
       </div>
       <Modal config={modal}>
-        <TaskCreateCard />
+        <TaskCreateCard task={tasks[selectedTaskIndex]} close={modal.close} />
       </Modal>
     </>
   );
